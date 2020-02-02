@@ -26,11 +26,11 @@
     ######use mysql;  
     ######update user set authentication_string='' where user='root';  
     ######alter user 'root'@'localhost' identified by '123456'；  
-* 打开IDEA导入工程，运行BookStreamApplication.java，检查数据库，看几张表是否建成。  
-* 测试：
-    ######用命令行插入数据
-    ######INSERT INTO `bookstream`.`users_table` (`phone_number`, `age`, `name`, `password`, `sex`) VALUES ('00000000000', '0', '交易对象为空', '123456', '10');
-    ######INSERT INTO `bookstream`.`users_table` (`phone_number`, `age`, `name`, `password`, `sex`) VALUES ('11111111111', '0', '平台', '123456', '10');
-    ######INSERT INTO `bookstream`.`users_table` (`phone_number`, `age`, `name`, `password`, `sex`) VALUES ('15696028246', '23', '陈建伟', '123456', '1');
-    ######INSERT INTO `bookstream`.`users_table` (`phone_number`, `age`, `name`, `password`, `sex`) VALUES ('13723458907', '22', '潘海明', '12345678', '1');
-    ######访问 http://localhost:8080/users/test?phone_number=15696028246 看能否返回正常的jason串
+* 打开IDEA导入工程，运行BookStreamApplication.java，检查数据库，看几张表是否建成。    
+* 测试：  
+    ######用命令行插入数据  
+    ######INSERT INTO `bookstream`.`users_table` (`phone_number`, `age`, `name`, `password`, `sex`) VALUES ('00000000000', '0', '交易对象为空', '123456', '10');  
+    ######INSERT INTO `bookstream`.`users_table` (`phone_number`, `age`, `name`, `password`, `sex`) VALUES ('11111111111', '0', '平台', '123456', '10');  
+    ######INSERT INTO `bookstream`.`users_table` (`phone_number`, `age`, `name`, `password`, `sex`) VALUES ('15696028246', '23', '陈建伟', '123456', '1');  
+    ######INSERT INTO `bookstream`.`users_table` (`phone_number`, `age`, `name`, `password`, `sex`) VALUES ('13723458907', '22', '潘海明', '12345678', '1');  
+    ######访问 http://localhost:8080/users/test?phone_number=15696028246 看能否返回正常的jason串  
