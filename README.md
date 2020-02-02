@@ -19,7 +19,7 @@
 * 从github上git下来，推荐使用github客户端（可以监控每一个人所做的修改）
 * 安装好IDEA、MYSQL等软件
 * 打开MYSQL命令行：
-    ######建立数据库（注意名字，改了的话就要改相应配置）
+    ** 建立数据库（注意名字，改了的话就要改相应配置）
     ######DROP DATABASE IF EXISTS bookStream;
     ######CREATE DATABASE bookStream DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
     ######修改密码
