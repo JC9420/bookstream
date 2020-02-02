@@ -1,0 +1,70 @@
+// buildscript 代码块中脚本优先执行
+buildscript {
+
+	// ext 用于定义动态属性
+	ext {
+		springBootVersion = '2.2.4.RELEASE'
+	}
+
+	// 自定义  Thymeleaf 和 Thymeleaf Layout Dialect 的版本
+	ext['thymeleaf.version'] = '3.0.3.RELEASE'
+	ext['thymeleaf-layout-dialect.version'] = '2.2.0'
+	ext['hibernate.version'] = '5.2.8.Final' //自定义hibernate版本
+
+	// 使用了 Maven 的中央仓库（你也可以指定其他仓库）
+	repositories {
+		//mavenCentral()
+		maven {
+			url 'http://maven.aliyun.com/nexus/content/groups/public/'
+		}
+	}
+
+	// 依赖关系
+	dependencies {
+		// classpath 声明说明了在执行其余的脚本时，ClassLoader 可以使用这些依赖项
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+plugins {
+	id 'org.springframework.boot' version '2.2.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com.springboot'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	//mavenCentral()
+	maven {
+		url 'http://maven.aliyun.com/nexus/content/groups/public/'
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	//引入thymeleaf
+	//compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+
+	//引入JPA标准化
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+
+	//加入数据库驱动
+	compile('mysql:mysql-connector-java:8.0.18')
+
+	//添加H2依赖  内嵌数据库
+	runtime('com.h2database:h2:1.4.193')
+
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	implementation 'android.arch.persistence.room:runtime:1.1.1'
+	annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
+}
+
+test {
+	useJUnitPlatform()
+}
