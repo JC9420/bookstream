@@ -9,5 +9,5 @@ import java.io.Serializable;
  * @create: 2020-02-02 14:55
  **/
 public class Base implements Serializable {
-    private static final long serialVersionUID = 1L;
+    protected static final long serialVersionUID = 1L;
 }

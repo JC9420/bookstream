@@ -1,5 +1,5 @@
 package com.bookstream.controller;
-import com.bookstream.domain.bean.UserBean;
+import com.bookstream.domain.bean.UsersBean;
 import com.bookstream.domain.entity.User;
 import com.bookstream.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,18 +40,17 @@ public class UserController {
 
     /**
      * 接口测试
-     * @param phone_number
+     * @param
      * @return
      */
-    @GetMapping("/test")
-    public UserBean getUserInfo(@RequestParam String phone_number) {
+    @GetMapping("/all")
+    public UsersBean getUserInfo() {
         try {
-            Optional<User> user =userRepository.findById(phone_number);
-            if(user==null) return new UserBean(0,"查无此人！",null);
-            else return new UserBean(0,"数据正常",user);
+            List<User> data = (List<User>) userRepository.findAll();
+            if(data==null) return new UsersBean(0,"查无此人！",null);
+            else return new UsersBean(0,"数据正常",data);
         }catch (Exception e){
-            return new UserBean(-1,"数据异常",null);
+            return new UsersBean(-1,"数据异常",null);
         }
-
     }
 }
